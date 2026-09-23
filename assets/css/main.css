@@ -22,6 +22,16 @@
 @media (min-width: 768px) { .hero h1 { font-size: 40px; } .hero-sub { font-size: 18px; } .hero-note { font-size: 15px; } }
 @media (min-width: 1024px) { .hero h1 { font-size: 48px; } .hero-sub { font-size: 20px; } .hero-eyebrow { font-size: 17px; } .hero-scroll { display: flex; } }
 @media (max-width: 767px) { .hero-scroll { display: none; } }
+/* 히어로 사진(원장 미소 컷)은 얼굴이 오른쪽에 있어 데스크톱에서는 문구를 왼쪽에 배치 */
+.hero-img { object-position: 62% 40%; }
+@media (min-width: 1024px) {
+  .hero { justify-content: flex-start; text-align: left; }
+  .hero-overlay { background: linear-gradient(90deg, rgba(29, 55, 82, .78) 0%, rgba(29, 55, 82, .55) 42%, rgba(29, 55, 82, .12) 100%); }
+  .hero-body { width: 100%; max-width: var(--inner); margin: 0 auto; padding: 0 var(--gutter); }
+  .hero-body > * { max-width: 620px; }
+  .hero-cta { justify-content: flex-start; }
+  .hero-circle { left: 66%; width: min(52vh, 560px); }
+}
 
 /* ② 진료 프로그램 4카드 (세로형 3:4, 영문 대형 세리프 + 한글 부제) */
 .programs .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
