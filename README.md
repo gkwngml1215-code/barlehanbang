@@ -83,6 +83,16 @@ tools/
 
 어드민에서 씁니다. `column/칼럼 작성 가이드.md` 참고. 초기 칼럼 6편(`column/_data/`)이 들어 있습니다. 구현가이드 7-3 의 나머지 10편 주제를 주 1편씩 발행하세요.
 
+## 4-1. 구안와사 FAQ (110문답) 고치는 방법
+
+페이지: `/facial-palsy/faq/` (안면마비 메뉴 > 구안와사 FAQ). 검색창·분류 버튼·모두 펼치기가 있고 답변은 기본으로 접혀 있습니다.
+
+- 질문·답변 원본은 `facial-palsy/faq/_data/gwanwasa.json` 하나뿐입니다. 여기만 고치고 `전체-다시-생성.bat` 을 실행하면 페이지·구조화 데이터(FAQPage)·사이트맵이 함께 갱신됩니다.
+- 항목 형식: `{ "id": 12, "cat": "basic", "q": "질문", "a": ["문단", "문단", { "list": ["항목", "항목"] }] }`. `cat` 은 `categories` 에 있는 id(basic·symptom·cause·treatment·recovery·care·sequelae)만 씁니다.
+- `facial-palsy/faq/index.html` 의 `<!-- faq:start -->`~`<!-- faq:end -->` 안쪽은 자동 생성이므로 직접 고치지 마세요.
+- 특정 질문으로 바로 가는 주소: `/facial-palsy/faq/#q12`, 검색어를 미리 넣는 주소: `/facial-palsy/faq/?q=재발`.
+- 원본 텍스트(`바를정질문.txt`)에 있던 "보증·100%·10배 빠름·치료 경험담·비급여 금액" 표현은 의료광고 기준에 맞춰 손봤고, 회복률 수치는 Peitersen(2002) 관찰 연구를 출처로 달았습니다. 새 답변을 넣을 때도 같은 기준을 지켜 주세요.
+
 ## 5. SEO · GEO · AEO 구조
 
 - 모든 페이지 `<head>` 에 `<!-- seo:start -->` ~ `<!-- seo:end -->` 블록이 자동 생성됩니다: canonical, robots, keywords, 소유확인 코드, Open Graph, Twitter Card, 지역 메타, JSON-LD.
