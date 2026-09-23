@@ -295,19 +295,19 @@
                 <div class="thumb-lib">또는 사이트에 있는 사진 사용:
                   <select id="thumbLib" onchange="useLib(this.value)">
                     <option value="">선택</option>
-                    <option value="/assets/images/sub/treatment-jeongan.svg">정안침 시술</option>
-                    <option value="/assets/images/sub/treatment-inno.svg">INNO 매선</option>
-                    <option value="/assets/images/sub/treatment-electro.svg">신경전기도수치료</option>
-                    <option value="/assets/images/sub/treatment-tang.svg">정안탕</option>
-                    <option value="/assets/images/sub/treatment-miso.svg">미소약침</option>
+                    <option value="/assets/images/sub/treatment-jeongan.jpg">정안침 시술</option>
+                    <option value="/assets/images/sub/treatment-inno.jpg">INNO 매선</option>
+                    <option value="/assets/images/sub/treatment-electro.jpg">신경전기도수치료</option>
+                    <option value="/assets/images/sub/treatment-tang.jpg">정안탕</option>
+                    <option value="/assets/images/sub/treatment-miso.jpg">미소약침</option>
                     <option value="/assets/images/sub/timeline.svg">골든타임 타임라인</option>
-                    <option value="/assets/images/facility/treatment-room.svg">치료실</option>
+                    <option value="/assets/images/facility/treatment-room.jpg">치료실</option>
                     <option value="/assets/images/facility/ward.svg">입원 병동</option>
                     <option value="/assets/images/facility/rehab-room.svg">재활치료실</option>
                     <option value="/assets/images/rehab/traffic-accident.svg">교통사고 후유증</option>
                     <option value="/assets/images/rehab/post-surgery.svg">수술 후 재활</option>
                     <option value="/assets/images/rehab/spine.svg">척추질환</option>
-                    <option value="/assets/images/doctors/jung-inho.svg">정인호 대표원장</option>
+                    <option value="/assets/images/doctors/jung-inho.jpg">정인호 대표원장</option>
                     <option value="/assets/images/column/default-thumb.svg">기본 칼럼 이미지</option>
                   </select>
                 </div>
@@ -445,7 +445,7 @@ const LOCAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 const SITE = () => (backend === gh ? String(cfg.siteUrl || "").replace(/\/+$/, "") : "");
 const siteHref = (p) => (p && p.startsWith("/") ? SITE() + p : p);
 const DEFAULT_THUMB = "/assets/images/column/default-thumb.svg";
-const DOCTOR_IMG = "/assets/images/doctors/jung-inho.svg";
+const DOCTOR_IMG = "/assets/images/doctors/jung-inho.jpg";
 let cfg = { owner: "", repo: "", branch: "main", siteUrl: "", buildHook: "", author: "정인호 대표원장", categories: [], relatedPages: {} };
 let token = sessionStorage.getItem("adminToken") || localStorage.getItem("adminToken") || "";
 let meta = { categories: [], relatedPages: {}, author: "정인호 대표원장" };

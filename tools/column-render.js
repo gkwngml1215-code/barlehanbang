@@ -29,7 +29,7 @@ const CATEGORIES = ADMIN_CFG.categories || ["안면마비", "후유증·재발",
 const RELATED_PAGES = ADMIN_CFG.relatedPages || {};
 const DEFAULT_AUTHOR = ADMIN_CFG.author || "정인호 대표원장";
 const DEFAULT_THUMB = "/assets/images/column/default-thumb.svg";
-const DOCTOR_IMG = "/assets/images/doctors/jung-inho.svg";
+const DOCTOR_IMG = "/assets/images/doctors/jung-inho.jpg";
 
 function esc(s) {
   return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");

@@ -59,7 +59,7 @@ const DOCTOR = {
   name: SC.doctor || "정인호",
   jobTitle: "한의사 · 대표원장",
   url: "/about/doctors/",
-  image: "/assets/images/doctors/jung-inho.svg",
+  image: "/assets/images/doctors/jung-inho.jpg",
   alumniOf: ["성균관대학교 동양철학과", "우석대학교 한의학과"],
   memberOf: ["대한안면학회 (회장)", "구안와사연구회 (회장)"],
   affiliation: "우석대학교 한의학과 외래교수",

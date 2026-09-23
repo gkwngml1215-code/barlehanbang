@@ -19,3 +19,6 @@ dist/
 # wrangler 임시 폴더 · 로컬 테스트용 비밀값
 .wrangler/
 .dev.vars
+
+# 원본 사진 폴더 (웹용은 assets/images 에 변환해 넣음)
+/image/

@@ -34,7 +34,7 @@ const commit = process.env.CF_PAGES_COMMIT_SHA || process.env.COMMIT_REF || "";
 fs.writeFileSync(path.join(ROOT, "build-info.json"), JSON.stringify({ commit, builtAt: new Date().toISOString(), branch: process.env.CF_PAGES_BRANCH || "", nextScheduled: R.nextScheduled() }, null, 2));
 
 // 공개 제외 목록 (저장소 루트 기준)
-const EXCLUDE = new Set(["tools", "admin", "components", "dist", "node_modules", ".git", ".gitignore", ".node-version", "site.json", "README.md", "배포가이드.md", "구현가이드.md", "package.json", "package-lock.json", ".wrangler", ".dev.vars"]);
+const EXCLUDE = new Set(["tools", "admin", "image", "components", "dist", "node_modules", ".git", ".gitignore", ".node-version", "site.json", "README.md", "배포가이드.md", "구현가이드.md", "package.json", "package-lock.json", ".wrangler", ".dev.vars"]);
 const EXCLUDE_PATHS = new Set(["column/_data", "column/_preview", "column/_template.html", "column/칼럼 작성 가이드.md"]);
 
 fs.rmSync(DIST, { recursive: true, force: true });
