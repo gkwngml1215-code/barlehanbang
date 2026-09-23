@@ -1,24 +1,23 @@
 @echo off
-chcp 65001 >nul
-title ë°”ë¥¼ì •í•œë°©ë³‘ì› ì•ˆë©´ë§ˆë¹„Â·ìž¬í™œì„¼í„° - ë¡œì»¬ ì„œë²„
+title ¹Ù¸¦Á¤ÇÑ¹æº´¿ø ¾È¸é¸¶ºñ¡¤ÀçÈ°¼¾ÅÍ - ·ÎÄÃ ¼­¹ö
 cd /d "%~dp0"
 where node >nul 2>nul
 if errorlevel 1 (
   echo.
-  echo [ì˜¤ë¥˜] Node.js ê°€ ì„¤ì¹˜ë˜ì–´ ìžˆì§€ ì•ŠìŠµë‹ˆë‹¤.
-  echo https://nodejs.org ì—ì„œ LTS ë²„ì „ì„ ì„¤ì¹˜í•œ ë’¤ ë‹¤ì‹œ ì‹¤í–‰í•˜ì„¸ìš”.
+  echo [¿À·ù] Node.js °¡ ¼³Ä¡µÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù.
+  echo https://nodejs.org ¿¡¼­ LTS ¹öÀüÀ» ¼³Ä¡ÇÑ µÚ ´Ù½Ã ½ÇÇàÇÏ¼¼¿ä.
   echo.
   pause
   exit /b 1
 )
 echo.
-echo  í™ˆíŽ˜ì´ì§€  http://localhost:8080/
-echo  ì–´ë“œë¯¼    http://localhost:8080/admin/   (ë¹„ë°€ë²ˆí˜¸ëŠ” tools\admin-config.json)
+echo  È¨ÆäÀÌÁö  http://localhost:8080/
+echo  ¾îµå¹Î    http://localhost:8080/admin/   (ºñ¹Ð¹øÈ£´Â tools\admin-config.json)
 echo.
-echo  ì´ ì°½ì„ ë‹«ìœ¼ë©´ ì„œë²„ê°€ êº¼ì§‘ë‹ˆë‹¤. ëë‚¼ ë•ŒëŠ” Ctrl + C ë˜ëŠ” ì°½ ë‹«ê¸°.
+echo  ÀÌ Ã¢À» ´ÝÀ¸¸é ¼­¹ö°¡ ²¨Áý´Ï´Ù. ³¡³¾ ¶§´Â Ctrl + C ¶Ç´Â Ã¢ ´Ý±â.
 echo.
 start "" cmd /c "timeout /t 2 >nul & start "" http://localhost:8080/admin/"
 node tools\admin-server.js
 echo.
-echo ì„œë²„ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤. (í¬íŠ¸ 8080 ì´ ì´ë¯¸ ì‚¬ìš© ì¤‘ì´ë©´ ìœ„ ë©”ì‹œì§€ë¥¼ í™•ì¸í•˜ì„¸ìš”)
+echo ¼­¹ö°¡ Á¾·áµÇ¾ú½À´Ï´Ù. Æ÷Æ® 8080 ÀÌ ÀÌ¹Ì »ç¿ë ÁßÀÌ¸é ÀÌÀü Ã¢À» ´Ý°í ´Ù½Ã ½ÇÇàÇÏ¼¼¿ä.
 pause

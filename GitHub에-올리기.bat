@@ -1,28 +1,27 @@
 @echo off
-chcp 65001 >nul
-title ë°”ë¥¼ì •í•œë°©ë³‘ì› ì•ˆë©´ë§ˆë¹„Â·ì¬í™œì„¼í„° - GitHub ì— ì˜¬ë¦¬ê¸°
+title ¹Ù¸¦Á¤ÇÑ¹æº´¿ø ¾È¸é¸¶ºñ¡¤ÀçÈ°¼¾ÅÍ - GitHub ¿¡ ¿Ã¸®±â
 cd /d "%~dp0"
 echo.
-echo  í™ˆí˜ì´ì§€(main) ì™€ ì–´ë“œë¯¼(admin) ì„ GitHub ì €ì¥ì†Œ gkwngml1215-code/barlehanbang ì— ì˜¬ë¦½ë‹ˆë‹¤.
-echo  ì˜¬ë¼ê°€ë©´ Cloudflare Pages ê°€ 1~2ë¶„ ë’¤ ìë™ ë°°í¬í•©ë‹ˆë‹¤.
+echo  È¨ÆäÀÌÁö(main) ¿Í ¾îµå¹Î(admin) À» GitHub ÀúÀå¼Ò gkwngml1215-code/barlehanbang ¿¡ ¿Ã¸³´Ï´Ù.
+echo  ¿Ã¶ó°¡¸é Cloudflare Pages °¡ 1~2ºĞ µÚ ÀÚµ¿ ¹èÆ÷ÇÕ´Ï´Ù.
 echo.
 git add -A
 git diff --cached --quiet
 if errorlevel 1 (
-  set /p MSG=ë³€ê²½ ë‚´ìš© í•œ ì¤„ ì„¤ëª… (ë¹„ìš°ë©´ ë‚ ì§œë¡œ ê¸°ë¡):
-  if "%MSG%"=="" set MSG=í™ˆí˜ì´ì§€ ê°±ì‹  %date% %time:~0,5%
+  set /p MSG=º¯°æ ³»¿ë ÇÑ ÁÙ ¼³¸í (ºñ¿ì¸é ³¯Â¥·Î ±â·Ï): 
+  if "%MSG%"=="" set MSG=È¨ÆäÀÌÁö °»½Å %date%
   git commit -m "%MSG%"
 ) else (
-  echo ì»¤ë°‹í•  ë³€ê²½ ë‚´ìš©ì´ ì—†ìŠµë‹ˆë‹¤. ì›ê²©ê³¼ ë™ê¸°í™”ë§Œ í•©ë‹ˆë‹¤.
+  echo Ä¿¹ÔÇÒ º¯°æ ³»¿ëÀÌ ¾ø½À´Ï´Ù. ¿ø°İ°ú µ¿±âÈ­¸¸ ÇÕ´Ï´Ù.
 )
 git push -u origin main
 if errorlevel 1 (
   echo.
-  echo [ì˜¤ë¥˜] í‘¸ì‹œì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤. ì¸í„°ë„· ì—°ê²°ê³¼ GitHub ë¡œê·¸ì¸ ìƒíƒœë¥¼ í™•ì¸í•˜ì„¸ìš”.
+  echo [¿À·ù] Çª½Ã¿¡ ½ÇÆĞÇß½À´Ï´Ù. ÀÎÅÍ³İ ¿¬°á°ú GitHub ·Î±×ÀÎ »óÅÂ¸¦ È®ÀÎÇÏ¼¼¿ä.
   pause
   exit /b 1
 )
 node tools\sync-admin.js
 echo.
-echo ì™„ë£Œ. Cloudflare Pages ë°°í¬ ìƒíƒœëŠ” https://dash.cloudflare.com ì—ì„œ í™•ì¸í•˜ì„¸ìš”.
+echo ¿Ï·á. Cloudflare Pages ¹èÆ÷ »óÅÂ´Â https://dash.cloudflare.com ¿¡¼­ È®ÀÎÇÏ¼¼¿ä.
 pause
