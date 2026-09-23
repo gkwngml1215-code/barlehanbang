@@ -28,7 +28,7 @@ try { ADMIN_CFG = JSON.parse(fs.readFileSync(path.join(ROOT, "admin", "config.js
 const CATEGORIES = ADMIN_CFG.categories || ["안면마비", "후유증·재발", "재활·통증", "생활관리", "병원소식"];
 const RELATED_PAGES = ADMIN_CFG.relatedPages || {};
 const DEFAULT_AUTHOR = ADMIN_CFG.author || "정인호 대표원장";
-const DEFAULT_THUMB = "/assets/images/column/default-thumb.svg";
+const DEFAULT_THUMB = "/assets/images/column/default-thumb.jpg";
 const DOCTOR_IMG = "/assets/images/doctors/jung-inho.jpg";
 
 function esc(s) {
