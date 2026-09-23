@@ -10,7 +10,7 @@
   <path d="M56 38 Q66 30 76 38" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
   <path d="M8 74 Q44 100 80 74" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
 </g>
-  <text x="600" y="331.45" text-anchor="middle" font-family="'Nanum Myeongjo', 'Cormorant Garamond', serif" font-size="47" font-weight="700" fill="#FFFFFF">바를정한방병원 안면마비·재활센터</text>
-  <text x="600" y="376.25" text-anchor="middle" font-family="'Cormorant Garamond', 'Nanum Myeongjo', serif" font-size="28" letter-spacing="4" fill="rgba(255,255,255,.7)">BAREULJUNG</text>
+  <text x="600" y="331.45" text-anchor="middle" font-family="Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="47" font-weight="700" fill="#FFFFFF">바를정한방병원 안면마비·재활센터</text>
+  <text x="600" y="376.25" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="500" font-size="28" letter-spacing="4" fill="rgba(255,255,255,.7)">BAREULJUNG</text>
   <text x="600" y="596.4" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="17" fill="rgba(255,255,255,.7)">실제 사진으로 교체 예정 · 1200×630</text>
 </svg>

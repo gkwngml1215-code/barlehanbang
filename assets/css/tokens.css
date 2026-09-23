@@ -33,8 +33,8 @@
   --kakao-text:     #191919;
 
   /* 타이포 */
-  --font-serif:     "Nanum Myeongjo", "Noto Serif KR", serif;
-  --font-en:        "Cormorant Garamond", "Nanum Myeongjo", serif;
+  --font-serif:     "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;  /* 고딕 통일 */
+  --font-en:        "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif;  /* 고딕 통일 */
   --font-sans:      "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
 
   /* 레이아웃 */
