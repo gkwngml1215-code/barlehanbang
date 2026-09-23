@@ -16,6 +16,7 @@ const crypto = require("crypto");
 const { execFileSync } = require("child_process");
 const INC = require("./include");
 const R = require("./column-render");
+const FAQ = require("./faq-render");
 const SA = require("./site-apply");
 
 const ROOT = R.ROOT;
@@ -62,6 +63,7 @@ function runSeo() {
 // 저장 후 전체 갱신: 헤더/푸터 → 설정 → 칼럼 → SEO
 function regenerate() {
   INC.includeAll();
+  try { FAQ.renderAll(); } catch (e) { console.error("faq-render 실패:", e.message); }
   SA.applyAll();
   const count = R.rebuildAll();
   const seo = runSeo();
@@ -194,7 +196,7 @@ function serveStatic(req, res, url) {
   let p = decodeURIComponent(url.pathname);
   if (p.includes("..")) return send(res, 400, "bad path", "text/plain");
   if (p.endsWith("/")) p += "index.html";
-  if (p.startsWith("/tools/") || p.startsWith("/column/_data/") || p.startsWith("/components/")) return send(res, 403, "forbidden", "text/plain");
+  if (p.startsWith("/tools/") || p.startsWith("/column/_data/") || p.startsWith("/facial-palsy/faq/_data/") || p.startsWith("/components/")) return send(res, 403, "forbidden", "text/plain");
   const file = path.join(ROOT, p);
   const stream = (f) => {
     res.writeHead(200, { "Content-Type": MIME[path.extname(f).toLowerCase()] || "application/octet-stream", "Cache-Control": "no-store" });

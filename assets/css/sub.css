@@ -252,3 +252,50 @@
 .doc p + p, .doc ul + p, .doc p + ul { margin-top: 10px; }
 .doc ul { padding-left: 20px; list-style: disc; }
 .doc ol { padding-left: 22px; list-style: decimal; }
+
+/* ---------- 구안와사 FAQ (facial-palsy/faq) : 검색 · 분류 · 그룹 ---------- */
+.faq-page .sec-head { margin-bottom: 28px; }
+.faq-search { max-width: 860px; margin: 0 auto 18px; }
+.faq-search-box { position: relative; display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px 6px 18px; box-shadow: var(--shadow); transition: border-color .2s, box-shadow .2s; }
+.faq-search-box:focus-within { border-color: var(--bj-sky); box-shadow: 0 0 0 4px rgba(100, 167, 221, .18); }
+.faq-search-box .ico { color: var(--bj-steel); flex-shrink: 0; }
+.faq-search-box input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 16px; padding: 10px 0; color: var(--text-strong); }
+.faq-search-box input::placeholder { color: var(--text-muted); }
+.faq-search-box input::-webkit-search-cancel-button { display: none; }
+.faq-search-box .clear { width: 30px; height: 30px; border-radius: 50%; border: 0; background: var(--bg-soft); color: var(--text-sub); font-size: 18px; line-height: 1; cursor: pointer; }
+.faq-search-box .clear:hover { background: var(--bj-sky-light); color: var(--bj-navy); }
+.faq-status { text-align: right; margin-top: 10px; font-size: 13px; color: var(--text-sub); }
+.faq-status strong { color: var(--bj-navy); }
+.faq-cats { margin-bottom: 18px; }
+.faq-cats .cnt { font-weight: 500; opacity: .7; margin-left: 2px; font-size: 12px; }
+.faq-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; border-top: 1px solid var(--bj-navy); padding-top: 12px; margin-bottom: 8px; }
+.faq-toolbar .muted { font-size: 13px; color: var(--text-sub); margin: 0; }
+.faq-toolbar .btns { display: flex; gap: 4px; }
+.btn-text { border: 1px solid var(--line); background: #fff; border-radius: 4px; padding: 6px 12px; font-size: 13px; font-weight: 600; color: var(--bj-blue); cursor: pointer; }
+.btn-text:hover { border-color: var(--bj-blue); background: #EEF5FB; }
+.faq-group { margin-top: 28px; }
+.faq-group-title { font-size: 18px; font-weight: 700; color: var(--bj-navy); margin-bottom: 4px; }
+.faq-group-title .cnt { font-size: 13px; font-weight: 500; color: var(--bj-steel); margin-left: 4px; }
+.faq-page .faq { border-top: 0; }
+.faq-page .faq-item summary::before { display: none; }
+.faq-page .faq-item summary { display: flex; gap: 10px; align-items: flex-start; }
+.faq-page .q-no { flex-shrink: 0; min-width: 40px; font-size: 13px; font-weight: 700; color: var(--bj-steel); letter-spacing: .02em; padding-top: 3px; }
+.faq-page .q-text mark { background: #FFF3B0; color: inherit; padding: 0 2px; border-radius: 2px; }
+.faq-page .faq-item .a { padding-left: 50px; }
+.faq-page .faq-item .a p + p, .faq-page .faq-item .a ul + p, .faq-page .faq-item .a p + ul { margin-top: 8px; }
+.faq-page .faq-item .a ul { padding-left: 18px; }
+.faq-page .faq-item .a li { list-style: disc; margin: 3px 0; }
+.faq-page .faq-item .a a { color: var(--bj-blue); text-decoration: underline; text-underline-offset: 3px; }
+.faq-tools { margin-top: 10px !important; font-size: 12px; }
+.faq-tools .faq-link { color: var(--text-muted) !important; text-decoration: none !important; }
+.faq-tools .faq-link:hover { color: var(--bj-blue) !important; }
+.faq-empty { text-align: center; padding: 48px 16px; border: 1px dashed var(--line); border-radius: 8px; margin-top: 16px; }
+.faq-empty p { font-size: 16px; color: var(--text-body); margin-bottom: 18px; }
+.faq-empty .btns { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.faq-note { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+@media (min-width: 768px) {
+  .faq-search-box input { font-size: 17px; padding: 12px 0; }
+  .faq-page .faq-item .a { padding-left: 60px; }
+  .faq-page .q-no { min-width: 48px; font-size: 14px; }
+  .faq-group-title { font-size: 20px; }
+}

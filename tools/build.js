@@ -17,6 +17,7 @@ const { execFileSync } = require("child_process");
 const INC = require("./include");
 const SA = require("./site-apply");
 const R = require("./column-render");
+const FAQ = require("./faq-render");
 
 const ROOT = R.ROOT;
 const DIST = path.join(ROOT, "dist");
@@ -25,6 +26,7 @@ console.log(`헤더·푸터 삽입: 바뀐 파일 ${INC.includeAll()}개`);
 const applied = SA.applyAll();
 console.log(`홈페이지 설정 반영: 바뀐 파일 ${applied.changed}개`);
 
+console.log(`FAQ 페이지 생성: 바뀐 파일 ${FAQ.renderAll()}개`);
 const published = R.rebuildAll();
 console.log(`칼럼: 공개 ${published}편`);
 
@@ -35,7 +37,7 @@ fs.writeFileSync(path.join(ROOT, "build-info.json"), JSON.stringify({ commit, bu
 
 // 공개 제외 목록 (저장소 루트 기준)
 const EXCLUDE = new Set(["tools", "admin", "image", "components", "dist", "node_modules", ".git", ".gitignore", ".node-version", "site.json", "README.md", "배포가이드.md", "구현가이드.md", "package.json", "package-lock.json", ".wrangler", ".dev.vars"]);
-const EXCLUDE_PATHS = new Set(["column/_data", "column/_preview", "column/_template.html", "column/칼럼 작성 가이드.md"]);
+const EXCLUDE_PATHS = new Set(["column/_data", "facial-palsy/faq/_data", "column/_preview", "column/_template.html", "column/칼럼 작성 가이드.md"]);
 
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });

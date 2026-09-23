@@ -141,7 +141,7 @@
 
 /* ⑨ FAQ — details.faq-item 은 sub.css 공용 */
 .faq-section .faq { max-width: 860px; margin: 0 auto; }
-.faq-section .more { margin-top: 28px; text-align: center; }
+.faq-section .more { margin-top: 28px; text-align: center; display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: center; }
 
 /* ⑩ 오시는 길·진료시간 */
 .location-grid { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center; }

@@ -175,7 +175,12 @@ function extract(html) {
   const faqs = [];
   const re = /<details class="faq-item"[^>]*>\s*<summary>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/gi;
   let m;
-  while ((m = re.exec(html))) faqs.push({ q: text(m[1]), a: text(m[2]) });
+  while ((m = re.exec(html))) {
+    // FAQ 페이지의 번호(Q12)·링크 복사 버튼은 구조화 데이터에서 제외
+    const qHtml = m[1].replace(/<span class="q-no">[\s\S]*?<\/span>/g, "");
+    const aHtml = m[2].replace(/<p class="faq-tools">[\s\S]*?<\/p>/g, "");
+    faqs.push({ q: text(qHtml), a: text(aHtml) });
+  }
 
   // 칼럼
   const artTag = pick(html, /(<article class="post"[^>]*>)/i);
