@@ -10,7 +10,4 @@
   <path d="M56 38 Q66 30 76 38" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
   <path d="M8 74 Q44 100 80 74" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
 </g>
-  <text x="600" y="355.35" text-anchor="middle" font-family="'Nanum Myeongjo', 'Cormorant Garamond', serif" font-size="51" font-weight="700" fill="#FFFFFF">연합운동</text>
-  <text x="600" y="403.35" text-anchor="middle" font-family="'Cormorant Garamond', 'Nanum Myeongjo', serif" font-size="30" letter-spacing="5" fill="rgba(255,255,255,.7)">SYNKINESIS</text>
-  <text x="600" y="639" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="18" fill="rgba(255,255,255,.7)">실제 사진으로 교체 예정 · 1200×675</text>
 </svg>

@@ -10,7 +10,4 @@
   <path d="M56 38 Q66 30 76 38" fill="none" stroke="#1D3752" stroke-width="4" stroke-linecap="round"/>
   <path d="M8 74 Q44 100 80 74" fill="none" stroke="#1D3752" stroke-width="7" stroke-linecap="round"/>
 </g>
-  <text x="600" y="473.8" text-anchor="middle" font-family="'Nanum Myeongjo', 'Cormorant Garamond', serif" font-size="68" font-weight="700" fill="#1D3752">남부순환로 1485</text>
-  <text x="600" y="539.4" text-anchor="middle" font-family="'Cormorant Garamond', 'Nanum Myeongjo', serif" font-size="41" letter-spacing="6" fill="#63839C">MAP</text>
-  <text x="600" y="850.8" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="25" fill="#63839C">실제 사진으로 교체 예정 · 1200×900</text>
 </svg>

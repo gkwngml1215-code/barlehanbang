@@ -10,7 +10,4 @@
   <path d="M56 38 Q66 30 76 38" fill="none" stroke="#1D3752" stroke-width="4" stroke-linecap="round"/>
   <path d="M8 74 Q44 100 80 74" fill="none" stroke="#1D3752" stroke-width="7" stroke-linecap="round"/>
 </g>
-  <text x="300" y="315.75" text-anchor="middle" font-family="'Nanum Myeongjo', 'Cormorant Garamond', serif" font-size="45" font-weight="700" fill="#1D3752">한·양방 협진</text>
-  <text x="300" y="358.95" text-anchor="middle" font-family="'Cormorant Garamond', 'Nanum Myeongjo', serif" font-size="27" letter-spacing="4" fill="#63839C">COLLABORATION</text>
-  <text x="300" y="567.6" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="16" fill="#63839C">실제 사진으로 교체 예정 · 600×600</text>
 </svg>
