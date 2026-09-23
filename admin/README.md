@@ -1,6 +1,6 @@
 # 바를정한방병원 안면마비·재활센터 어드민
 
-- 이 폴더(`main` 브랜치의 `admin/`)가 어드민의 원본입니다. 고친 뒤 사이트 폴더에서 `node tools/sync-admin.js` 를 실행하면 `admin` 브랜치로 복사되고, Cloudflare Pages 프로젝트 `bareuljung-face-admin` 이 1~2분 뒤 자동 배포합니다.
+- 이 폴더(`main` 브랜치의 `admin/`)가 어드민의 원본입니다. 고친 뒤 사이트 폴더에서 `node tools/sync-admin.js` 를 실행하면 `admin` 브랜치로 복사되고, Cloudflare Pages 프로젝트 `barlehanbang-admin` 이 1~2분 뒤 자동 배포합니다.
 - `admin` 브랜치를 직접 고치지 마세요 (다음 동기화 때 덮어씁니다).
 - `_worker.js` 는 아이디·비밀번호 잠금입니다. 지우거나 이름을 바꾸면 잠금이 풀립니다. 아이디·비밀번호는 Cloudflare 대시보드 Variables and Secrets 의 `ADMIN_USER` / `ADMIN_PASS` 입니다.
 - `config.json` 에 저장소(owner/repo/branch), 홈페이지 주소(siteUrl), 칼럼 카테고리, 관련 진료 페이지 목록이 있습니다. **도메인이 확정되면 `siteUrl` 을 바꾸세요.**

@@ -1,5 +1,5 @@
 /**
- * 아이디 · 비밀번호 검사 (Cloudflare Pages · bareuljung-face 저장소 admin 브랜치)
+ * 아이디 · 비밀번호 검사 (Cloudflare Pages · barlehanbang 저장소 admin 브랜치)
  *
  * 이 파일은 어드민으로 들어오는 "모든 요청"을 가장 먼저 가로챕니다.
  * 아이디·비밀번호가 맞지 않으면 어떤 파일도 내주지 않습니다.

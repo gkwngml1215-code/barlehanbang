@@ -1,7 +1,7 @@
 /**
  * 어드민 폴더(admin/) 를 저장소의 admin 브랜치로 올립니다.
  * ------------------------------------------------------------
- * Cloudflare Pages "bareuljung-face-admin" 프로젝트는 admin 브랜치에 연결되어 있어서,
+ * Cloudflare Pages "barlehanbang-admin" 프로젝트는 admin 브랜치에 연결되어 있어서,
  * 이 스크립트를 실행하면 1~2분 뒤 어드민 주소에 반영됩니다.
  *
  * 실행:  사이트 폴더에서  node tools/sync-admin.js

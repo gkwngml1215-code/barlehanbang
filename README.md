@@ -6,7 +6,11 @@
 
 ## 1. 여는 방법
 
-- 방법 A (권장): 사이트 폴더에서 `node tools/admin-server.js` 실행 → 홈페이지 `http://localhost:8080/`, 어드민 `http://localhost:8080/admin/`
+- **가장 쉬운 방법: `서버-켜기.bat` 더블클릭** (상위 폴더의 `홈페이지-서버-켜기.bat` 도 같은 역할). 검은 창이 뜨고 2초 뒤 브라우저에 어드민이 열립니다. 창을 닫으면 서버가 꺼집니다.
+  - `index.html` 을 더블클릭해서 여는 방식(`file://`)은 절대경로 때문에 스타일이 깨지고 어드민도 동작하지 않습니다. 반드시 서버로 여세요.
+  - "포트 8080 이 이미 사용 중" 이 뜨면 이전 창이 아직 열려 있는 것입니다. 그 창을 닫고 다시 실행하세요.
+  - 함께 있는 `전체-다시-생성.bat` 은 빌드, `GitHub에-올리기.bat` 은 커밋·푸시·어드민 동기화를 한 번에 합니다.
+- 방법 A (명령어): 사이트 폴더에서 `node tools/admin-server.js` 실행 → 홈페이지 `http://localhost:8080/`, 어드민 `http://localhost:8080/admin/`
 - 방법 B: VS Code 확장 **Live Server** 로 `index.html` 열기 (홈페이지만 볼 때. 어드민은 동작 안 함)
 - 헤더·푸터는 JS 로 불러오지 않고 각 HTML 에 **정적으로 삽입**되어 있어 `file://` 로 열어도 메뉴가 보입니다. 다만 절대경로(`/assets/…`)를 쓰므로 스타일은 로컬 서버로 열어야 제대로 보입니다.
 - 처음 받았거나 메뉴(`components/`)·설정(`site.json`)·칼럼을 손으로 고쳤다면 한 번 `node tools/build.js` 를 실행해 전체 페이지를 갱신하세요.
@@ -17,7 +21,7 @@
 - 할 수 있는 것: 칼럼 목록, 새 글 쓰기(제목·작성자·카테고리·**관련 진료 페이지**·description·keywords·**유튜브 영상**·schema·내용 편집기(정답 박스·체크리스트·표)·썸네일·alt + 핵심 요약·FAQ·참고 자료), 수정, 삭제, 임시저장, 예약 발행, 미리보기, 전체 다시 생성, **홈페이지 설정**(전화·주소·진료시간·채널·SEO·공지 띠)
 - 저장하면 칼럼 페이지 생성 → 목록(12개씩 페이지네이션) · 메인 칼럼 6개 · 진료 페이지 하단 "관련 원장칼럼 3개" 갱신 → SEO 데이터·sitemap·RSS·llms.txt 갱신까지 자동
 - 자세한 사용법: `column/칼럼 작성 가이드.md`
-- **인터넷 어드민(배포 후):** `https://bareuljung-face-admin.pages.dev` (Cloudflare Pages, `admin` 브랜치, `_worker.js` 아이디·비밀번호 잠금) 에서 GitHub 접속 키로 로그인하면 어느 컴퓨터에서나 칼럼을 쓸 수 있습니다. 글은 GitHub `main` 의 `column/_data/` 에 저장되고, Cloudflare Pages 가 `node tools/build.js` 로 홈페이지를 자동 생성합니다. 설치 순서는 `배포가이드.md`.
+- **인터넷 어드민(배포 후):** `https://barlehanbang-admin.pages.dev` (Cloudflare Pages, `admin` 브랜치, `_worker.js` 아이디·비밀번호 잠금) 에서 GitHub 접속 키로 로그인하면 어느 컴퓨터에서나 칼럼을 쓸 수 있습니다. 글은 GitHub `main` 의 `column/_data/` 에 저장되고, Cloudflare Pages 가 `node tools/build.js` 로 홈페이지를 자동 생성합니다. 설치 순서는 `배포가이드.md`.
 
 ## 2. 폴더 구조
 

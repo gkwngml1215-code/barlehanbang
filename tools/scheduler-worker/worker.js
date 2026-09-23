@@ -8,7 +8,7 @@
  *
  * 설정값
  *   SITE_URL    (wrangler.toml vars)  홈페이지 주소
- *   DEPLOY_HOOK (secret)              Pages 프로젝트 bareuljung-face 의 배포 훅 주소
+ *   DEPLOY_HOOK (secret)              Pages 프로젝트 barlehanbang 의 배포 훅 주소
  */
 function todayKST() {
   return new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
@@ -31,6 +31,6 @@ export default {
   },
   // 주소로 직접 열 일은 없음 (workers_dev = false). 혹시 연결되더라도 아무것도 하지 않음.
   async fetch() {
-    return new Response("bareuljung-face scheduler", { status: 200 });
+    return new Response("barlehanbang scheduler", { status: 200 });
   },
 };

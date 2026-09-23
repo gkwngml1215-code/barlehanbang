@@ -1,6 +1,6 @@
 # 예약 발행 스케줄러 — 배포: 이 폴더에서  npx wrangler deploy
-# 비밀값: npx wrangler secret put DEPLOY_HOOK   (Pages 프로젝트 bareuljung-face 의 배포 훅 주소)
-name = "bareuljung-face-scheduler"
+# 비밀값: npx wrangler secret put DEPLOY_HOOK   (Pages 프로젝트 barlehanbang 의 배포 훅 주소)
+name = "barlehanbang-scheduler"
 main = "worker.js"
 compatibility_date = "2026-09-01"
 account_id = "6b457196c44a2edd385a645067952643"
