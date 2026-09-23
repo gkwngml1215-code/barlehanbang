@@ -975,7 +975,6 @@ function previewHtml(d) {
   const state = d.status === "draft" ? "임시저장 상태" : isScheduled(d) ? `예약 발행 — ${fmt(d.published)} 오전 9시쯤 공개` : "공개 상태";
   return `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex"><base href="${site}/"><title>[미리보기] ${esc(d.title)}</title>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="/assets/css/tokens.css"><link rel="stylesheet" href="/assets/css/common.css"><link rel="stylesheet" href="/assets/css/sub.css">
 <style>body{padding-top:0!important}.pv-bar{position:sticky;top:0;z-index:99;background:#1D3752;color:#fff;font-size:14px;padding:10px 16px;text-align:center}.pv-bar b{color:#64A7DD}</style></head><body class="page-column">
