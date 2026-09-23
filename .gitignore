@@ -1,0 +1,21 @@
+# 로컬 어드민 비밀번호 (인터넷에 올리지 않음)
+tools/admin-config.json
+
+# 빌드 산출물 · 임시
+build-info.json
+node_modules/
+.DS_Store
+Thumbs.db
+
+# 칼럼 페이지·목록 페이지네이션은 빌드 때 JSON 에서 생성되므로 저장소에 넣지 않음
+# (column/index.html, column/_data/, column/_template.html 은 유지)
+column/*/
+!column/_data/
+column/_preview/
+
+# 빌드 산출물 (Cloudflare Pages 가 만듦)
+dist/
+
+# wrangler 임시 폴더 · 로컬 테스트용 비밀값
+.wrangler/
+.dev.vars

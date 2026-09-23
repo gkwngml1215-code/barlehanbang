@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="바를정한방병원 안면마비·재활센터 (자리표시 이미지)">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1D3752"/><stop offset=".55" stop-color="#1F4569"/><stop offset="1" stop-color="#63839C"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <circle cx="600" cy="315" r="201.6" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2"/>
+  <g transform="translate(502.98,86.373) scale(2.205)" opacity=".9">
+  <rect x="4" y="6" width="80" height="14" rx="7" fill="#FFFFFF"/>
+  <rect x="37" y="6" width="14" height="60" rx="7" fill="rgba(255,255,255,.75)"/>
+  <rect x="37" y="6" width="14" height="14" rx="7" fill="#FFFFFF"/>
+  <ellipse cx="18" cy="42" rx="7" ry="5.5" transform="rotate(-25 18 42)" fill="#FFFFFF"/>
+  <path d="M56 38 Q66 30 76 38" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M8 74 Q44 100 80 74" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+</g>
+  <text x="600" y="331.45" text-anchor="middle" font-family="'Nanum Myeongjo', 'Cormorant Garamond', serif" font-size="47" font-weight="700" fill="#FFFFFF">바를정한방병원 안면마비·재활센터</text>
+  <text x="600" y="376.25" text-anchor="middle" font-family="'Cormorant Garamond', 'Nanum Myeongjo', serif" font-size="28" letter-spacing="4" fill="rgba(255,255,255,.7)">BAREULJUNG</text>
+  <text x="600" y="596.4" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="17" fill="rgba(255,255,255,.7)">실제 사진으로 교체 예정 · 1200×630</text>
+</svg>

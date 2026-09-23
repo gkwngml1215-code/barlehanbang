@@ -1,0 +1,148 @@
+/* ------------------------------------------------------------
+   메인 페이지 전용 (10개 섹션)
+   ------------------------------------------------------------ */
+
+/* ① 히어로: 풀스크린 + 중앙 원형 라인 모티프 */
+.hero { position: relative; height: 100vh; min-height: 560px; max-height: 1080px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; overflow: hidden; background: var(--bj-navy); }
+.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(29, 55, 82, .45) 0%, rgba(29, 55, 82, .35) 50%, rgba(29, 55, 82, .55) 100%); }
+.hero-circle { position: absolute; left: 50%; top: 50%; width: min(78vw, 68vh, 620px); aspect-ratio: 1; border: 1px solid rgba(99, 131, 156, .65); border-radius: 50%; transform: translate(-50%, -50%); animation: circleIn 1.6s var(--ease) both; }
+.hero-circle::after { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 50%; }
+@keyframes circleIn { from { opacity: 0; transform: translate(-50%, -50%) scale(.9); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+.hero-body { position: relative; z-index: 1; padding: 0 var(--gutter); max-width: 920px; animation: fadeUp 1.2s .3s var(--ease) both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+.hero-eyebrow { font-family: var(--font-en); font-size: 15px; letter-spacing: .3em; text-transform: uppercase; color: rgba(255, 255, 255, .8); margin-bottom: 18px; }
+.hero h1 { font-family: var(--font-serif); font-weight: 800; font-size: 28px; line-height: 1.35; color: #fff; letter-spacing: -.01em; }
+.hero-sub { margin-top: 16px; font-size: 16px; font-weight: 500; color: var(--bj-sky-light); }
+.hero-note { margin-top: 10px; font-size: 14px; color: rgba(255, 255, 255, .8); }
+.hero-cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.hero-scroll { position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); font-family: var(--font-en); font-size: 12px; letter-spacing: .3em; color: rgba(255, 255, 255, .7); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.hero-scroll::after { content: ""; width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255, 255, 255, .8), transparent); animation: scrollLine 1.8s infinite; }
+@keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+@media (min-width: 768px) { .hero h1 { font-size: 40px; } .hero-sub { font-size: 18px; } .hero-note { font-size: 15px; } }
+@media (min-width: 1024px) { .hero h1 { font-size: 48px; } .hero-sub { font-size: 20px; } .hero-eyebrow { font-size: 17px; } .hero-scroll { display: flex; } }
+@media (max-width: 767px) { .hero-scroll { display: none; } }
+
+/* ② 진료 프로그램 4카드 (세로형 3:4, 영문 대형 세리프 + 한글 부제) */
+.programs .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.program-card { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; color: #fff; background: var(--bj-navy); }
+.program-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.program-card:hover img { transform: scale(1.05); }
+.program-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(29, 55, 82, .85) 0%, rgba(29, 55, 82, .2) 55%, rgba(29, 55, 82, 0) 100%); }
+.program-text { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 16px; z-index: 1; }
+.program-text .en { font-family: var(--font-en); font-weight: 600; font-size: 30px; line-height: .95; letter-spacing: -.01em; }
+.program-text .ko { margin-top: 8px; font-size: 13px; font-weight: 500; color: rgba(255, 255, 255, .9); }
+.program-text .more { display: inline-block; margin-top: 12px; font-size: 13px; opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s; border-bottom: 1px solid rgba(255, 255, 255, .7); }
+.program-card:hover .more { opacity: 1; transform: none; }
+@media (min-width: 768px) { .programs .grid { gap: 16px; } .program-text { padding: 28px 24px; } .program-text .en { font-size: 40px; } .program-text .ko { font-size: 15px; } }
+@media (min-width: 1024px) { .programs .grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } .program-text .en { font-size: 48px; } .program-text .ko { font-size: 17px; } }
+@media (min-width: 1440px) { .program-text .en { font-size: 56px; } }
+
+/* ③ 골든타임 3주 타임라인 */
+.golden { background: var(--bg-soft); }
+.timeline { display: grid; grid-template-columns: 1fr; gap: 16px; position: relative; }
+.tl-step { background: #fff; padding: 32px 26px; border-top: 3px solid var(--bj-navy); position: relative; box-shadow: var(--shadow); }
+.tl-step.warn { border-top-color: var(--bj-steel); }
+.tl-step.manage { border-top-color: var(--bj-sky); }
+.tl-num { font-family: var(--font-en); font-size: 44px; font-weight: 600; line-height: 1; color: var(--bj-steel); }
+.tl-range { display: block; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--bj-sky); letter-spacing: .02em; }
+.tl-step h3 { font-family: var(--font-serif); font-size: 20px; margin-top: 8px; }
+.tl-step p { margin-top: 12px; font-size: 15px; color: var(--text-sub); }
+.tl-links { margin-top: 36px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; }
+@media (min-width: 768px) {
+  .timeline { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .timeline::before { content: ""; position: absolute; left: 6%; right: 6%; top: -22px; height: 1px; background: var(--line); }
+  .tl-step::before { content: ""; position: absolute; top: -27px; left: 50%; width: 10px; height: 10px; border-radius: 50%; background: var(--bj-navy); transform: translateX(-50%); box-shadow: 0 0 0 4px var(--bg-soft); }
+  .tl-step.warn::before { background: var(--bj-steel); } .tl-step.manage::before { background: var(--bj-sky); }
+  .timeline { margin-top: 30px; }
+}
+@media (min-width: 1024px) { .tl-step { padding: 40px 36px; } .tl-step h3 { font-size: 22px; } }
+
+/* ④ 원장칼럼 (메인 중앙) — 카드 스타일은 sub.css 의 .post-card 공용 */
+.home-columns .sec-head { margin-bottom: 28px; }
+.home-columns .more { margin-top: 40px; text-align: center; }
+
+/* ⑤ 대표원장 소개 */
+.director { background: var(--bg-soft); position: relative; overflow: hidden; }
+.watermark { position: absolute; right: -80px; bottom: -120px; width: 480px; opacity: .05; pointer-events: none; user-select: none; }
+.director-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; position: relative; }
+.director-photo { position: relative; padding: 6%; }
+.director-photo .circle-graphic { position: absolute; inset: 0; border: 1px solid var(--bj-sky); border-radius: 50%; }
+.director-photo .circle-graphic::after { content: ""; position: absolute; inset: 18px; border: 1px solid rgba(99, 131, 156, .35); border-radius: 50%; }
+.director-photo img { position: relative; width: 100%; max-width: 420px; margin: 0 auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border-radius: 210px 210px 6px 6px; }
+.director-text .sec-eyebrow { text-align: left; }
+.director-text .sec-title { text-align: left; }
+.director-text .sec-title .bar { margin-left: 0; }
+.director-name { margin-top: 24px; font-size: 22px; font-weight: 700; color: var(--bj-navy); }
+.director-name small { font-size: 15px; font-weight: 500; color: var(--text-sub); margin-left: 8px; }
+.credentials { margin-top: 16px; display: grid; gap: 6px; }
+.credentials li { position: relative; padding-left: 20px; font-size: 15px; color: var(--text-body); }
+.credentials li::before { content: ""; position: absolute; left: 0; top: 11px; width: 10px; height: 2px; background: var(--bj-navy); }
+.credentials li::after { content: ""; position: absolute; left: 4px; top: 8px; width: 2px; height: 8px; background: var(--bj-steel); }
+.director-text p.quote { margin-top: 24px; font-family: var(--font-serif); font-size: 17px; line-height: 1.9; color: var(--text-body); border-left: 2px solid var(--bj-sky); padding-left: 18px; }
+.director-text .btns { margin-top: 28px; }
+@media (min-width: 1024px) { .director-grid { grid-template-columns: 5fr 7fr; gap: 72px; } .director-name { font-size: 26px; } .credentials li { font-size: 16px; } .watermark { width: 640px; } }
+
+/* ⑥ 핵심치료 탭 */
+.tabs { display: flex; gap: 0; border-bottom: 1px solid var(--line); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { flex: 0 0 auto; padding: 14px 18px; font-size: 15px; font-weight: 600; color: var(--text-sub); border-bottom: 2px solid transparent; margin-bottom: -1px; position: relative; transition: color .25s; white-space: nowrap; }
+.tab:hover { color: var(--bj-blue); }
+.tab.is-active { color: var(--bj-navy); border-bottom-color: var(--bj-navy); }
+.tab.is-active::after { content: ""; position: absolute; left: 50%; bottom: -1px; width: 2px; height: 10px; background: var(--bj-steel); transform: translateX(-50%); }
+.tab-panels { margin-top: 36px; }
+.tab-panel { display: none; }
+.tab-panel.is-active { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
+.tab-panel img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); }
+.tab-panel .en { font-family: var(--font-en); font-size: 15px; letter-spacing: .2em; color: var(--bj-steel); text-transform: uppercase; }
+.tab-panel h3 { font-family: var(--font-serif); font-size: 24px; margin-top: 6px; }
+.tab-panel .one-line { margin-top: 12px; font-size: 17px; font-weight: 500; color: var(--bj-blue); }
+.tab-panel p { margin-top: 14px; color: var(--text-sub); }
+.spec { margin-top: 20px; display: grid; grid-template-columns: 96px 1fr; gap: 8px 14px; font-size: 14px; }
+.spec dt { color: var(--bj-steel); font-weight: 600; }
+.spec dd { color: var(--text-body); }
+.treatments .btns { margin-top: 24px; }
+@media (min-width: 768px) { .tabs { justify-content: center; } .tab { padding: 16px 26px; font-size: 16px; } }
+@media (min-width: 1024px) { .tab-panel.is-active { grid-template-columns: 1fr 1fr; gap: 64px; } .tab-panel h3 { font-size: 30px; } }
+
+/* ⑦ 재활클리닉 3카드 */
+.rehab-cards .grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.rehab-card { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; color: #fff; background: var(--bj-navy); }
+.rehab-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.rehab-card:hover img { transform: scale(1.05); }
+.rehab-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(29, 55, 82, .9), rgba(29, 55, 82, .1) 60%); }
+.rehab-card .text { position: absolute; left: 0; right: 0; bottom: 0; padding: 24px; z-index: 1; }
+.rehab-card .text .en { font-family: var(--font-en); font-size: 13px; letter-spacing: .2em; text-transform: uppercase; opacity: .8; }
+.rehab-card h3 { font-family: var(--font-serif); font-size: 22px; color: #fff; margin-top: 4px; }
+.rehab-card p { margin-top: 8px; font-size: 14px; color: rgba(255, 255, 255, .85); }
+.rehab-card .more { display: inline-block; margin-top: 12px; font-size: 13px; border-bottom: 1px solid rgba(255, 255, 255, .7); }
+@media (min-width: 768px) { .rehab-cards .grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } .rehab-card { aspect-ratio: 3 / 4; } }
+@media (min-width: 1024px) { .rehab-card .text { padding: 32px; } .rehab-card h3 { font-size: 26px; } }
+
+/* ⑧ 특장점 3원형 */
+.features .grid { display: grid; grid-template-columns: 1fr; gap: 40px; text-align: center; }
+.feature-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 0 auto 22px; border: 1px solid var(--line); padding: 8px; background: #fff; }
+.feature-num { font-family: var(--font-en); font-size: 40px; font-weight: 600; line-height: 1; color: var(--bj-navy); }
+.feature-num small { font-size: 16px; font-family: var(--font-sans); font-weight: 600; margin-left: 2px; }
+.feature h3 { font-family: var(--font-serif); font-size: 20px; margin-top: 10px; }
+.feature p { margin-top: 10px; font-size: 15px; color: var(--text-sub); max-width: 320px; margin-left: auto; margin-right: auto; }
+@media (min-width: 768px) { .features .grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+@media (min-width: 1024px) { .feature-img { width: 240px; height: 240px; } .feature-num { font-size: 48px; } }
+
+/* ⑨ FAQ — details.faq-item 은 sub.css 공용 */
+.faq-section .faq { max-width: 860px; margin: 0 auto; }
+.faq-section .more { margin-top: 28px; text-align: center; }
+
+/* ⑩ 오시는 길·진료시간 */
+.location-grid { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center; }
+.location-grid > img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.info-list { display: grid; gap: 22px; }
+.info-list dt { font-size: 12px; letter-spacing: .18em; color: var(--bj-steel); font-weight: 700; text-transform: uppercase; font-family: var(--font-en); }
+.info-list dd { margin-top: 4px; font-size: 16px; color: var(--text-body); }
+.info-list dd .tel { font-family: var(--font-en); font-size: 30px; font-weight: 600; color: var(--bj-navy); letter-spacing: .04em; line-height: 1.1; }
+.hours-table { width: 100%; font-size: 15px; }
+.hours-table th, .hours-table td { padding: 8px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.hours-table th { width: 42%; color: var(--bj-navy); font-weight: 600; }
+.hours-note { margin-top: 10px; font-size: 14px; color: var(--text-sub); }
+.location .btns { margin-top: 28px; }
+@media (min-width: 1024px) { .location-grid { grid-template-columns: 1fr 1fr; gap: 72px; } .info-list dd { font-size: 17px; } }

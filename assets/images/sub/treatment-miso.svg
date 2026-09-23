@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="미소환·미소약침 (자리표시 이미지)">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4F7FA"/><stop offset=".55" stop-color="#DCE4EC"/><stop offset="1" stop-color="#E7EEF4"/></linearGradient></defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <circle cx="600" cy="400" r="256" fill="none" stroke="rgba(99,131,156,.55)" stroke-width="2"/>
+  <g transform="translate(476.79999999999995,109.67999999999998) scale(2.8000000000000003)" opacity=".9">
+  <rect x="4" y="6" width="80" height="14" rx="7" fill="#1D3752"/>
+  <rect x="37" y="6" width="14" height="60" rx="7" fill="#63839C"/>
+  <rect x="37" y="6" width="14" height="14" rx="7" fill="#1F4569"/>
+  <ellipse cx="18" cy="42" rx="7" ry="5.5" transform="rotate(-25 18 42)" fill="#1D3752"/>
+  <path d="M56 38 Q66 30 76 38" fill="none" stroke="#1D3752" stroke-width="4" stroke-linecap="round"/>
+  <path d="M8 74 Q44 100 80 74" fill="none" stroke="#1D3752" stroke-width="7" stroke-linecap="round"/>
+</g>
+  <text x="600" y="421" text-anchor="middle" font-family="'Nanum Myeongjo', 'Cormorant Garamond', serif" font-size="60" font-weight="700" fill="#1D3752">미소환·미소약침</text>
+  <text x="600" y="478.6" text-anchor="middle" font-family="'Cormorant Garamond', 'Nanum Myeongjo', serif" font-size="36" letter-spacing="5" fill="#63839C">MISO</text>
+  <text x="600" y="756.8" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="22" fill="#63839C">실제 사진으로 교체 예정 · 1200×800</text>
+</svg>

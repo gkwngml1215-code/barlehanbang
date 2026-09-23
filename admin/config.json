@@ -1,0 +1,31 @@
+{
+  "owner": "gkwngml1215-code",
+  "repo": "bareuljung-face",
+  "branch": "main",
+  "siteUrl": "https://face.barrrjung-hospital.co.kr",
+  "buildHook": "",
+  "author": "정인호 대표원장",
+  "categories": [
+    "안면마비",
+    "후유증·재발",
+    "재활·통증",
+    "생활관리",
+    "병원소식"
+  ],
+  "relatedPages": {
+    "/facial-palsy/": "안면마비 (허브)",
+    "/facial-palsy/bells-palsy/": "구안와사·벨마비",
+    "/facial-palsy/ramsay-hunt/": "람세이헌트증후군",
+    "/facial-palsy/sequelae/": "안면마비 후유증",
+    "/facial-palsy/treatment/": "바를정 핵심치료",
+    "/facial-palsy/trigeminal/": "삼차신경통",
+    "/facial-palsy/asymmetry/": "안면비대칭",
+    "/rehab/": "재활클리닉 (허브)",
+    "/rehab/traffic-accident/": "교통사고 후유증",
+    "/rehab/post-surgery/": "수술 후 재활",
+    "/rehab/spine/": "척추질환",
+    "/admission/": "입원·보험안내"
+  },
+  "naverVerify": "",
+  "googleVerify": ""
+}

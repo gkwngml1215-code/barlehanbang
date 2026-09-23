@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!--
+  ※ 이 파일은 "칼럼 한 편의 구조"를 보여주는 참고용 템플릿입니다. 실제 칼럼은 어드민(/admin/)에서 작성하면
+     tools/column-render.js 가 이 구조로 column/<slug>/index.html 을 자동 생성합니다. 이 파일을 복사해서 손으로 만들지 마세요.
+  ※ 어드민 입력칸과의 대응: 제목=H1 / description=meta / 핵심 요약=summary-box / 본문(H2·정답박스·표)=post-body /
+     FAQ=details.faq-item / 참고 자료=references / 관련 진료 페이지=related-columns 연결
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[칼럼 제목 — 메인 키워드를 앞에] | 바를정한방병원 원장칼럼</title>
+<meta name="description" content="[첫 문장에 결론(40~60자) → 무엇을 다루는지. 80~120자]">
+<meta name="keywords" content="[지역+증상+치료 조합 3~5개, 쉼표 구분]">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/common.css">
+<link rel="stylesheet" href="/assets/css/sub.css">
+</head>
+<body class="page-sub page-column">
+<!-- include:header --><!-- /include:header -->
+
+<main id="content">
+  <div class="inner narrow">
+    <article class="post" data-category="[안면마비 | 후유증·재발 | 재활·통증 | 생활관리 | 병원소식]" data-published="2026-01-01" data-modified="2026-01-01" data-image="/assets/images/column/[썸네일]">
+
+      <header class="post-head">
+        <nav class="breadcrumb" aria-label="현재 위치"><a href="/">홈</a> &gt; <a href="/column/">원장칼럼</a> &gt; <span>[짧은 제목]</span></nav>
+        <span class="cat">[카테고리]</span>
+        <h1>[칼럼 제목]</h1>
+        <div class="post-meta">
+          <span class="author"><img src="/assets/images/doctors/jung-inho.svg" alt="정인호 대표원장">정인호 대표원장 · 대한안면학회 회장</span>
+          <span>작성 <time datetime="2026-01-01">2026년 1월 1일</time></span>
+          <span>읽는 시간 약 N분</span>
+        </div>
+      </header>
+
+      <div class="post-hero"><img src="/assets/images/column/[썸네일]" alt="[사진 내용을 문장으로]"></div>
+
+      <!-- 핵심 요약: AI 검색이 그대로 가져가는 3줄. 숫자·기간·기준을 넣기 -->
+      <section class="summary-box" aria-label="핵심 요약">
+        <h2>핵심 요약</h2>
+        <ul>
+          <li>[결론 1 — 가장 중요한 답]</li>
+          <li>[결론 2 — 이유·기준]</li>
+          <li>[결론 3 — 치료·관리 방법]</li>
+        </ul>
+      </section>
+
+      <nav class="toc" aria-label="목차">
+        <strong>목차</strong>
+        <ol>
+          <li><a href="#s1">[질문형 소제목 1]</a></li>
+          <li><a href="#s2">[질문형 소제목 2]</a></li>
+          <li><a href="#s3">바를정한방병원에서는 이렇게 치료합니다</a></li>
+          <li><a href="#faq">자주 묻는 질문</a></li>
+        </ol>
+      </nav>
+
+      <div class="post-body">
+        <p>[도입 2~3문단 — 진료실 경험이나 환자 질문으로 시작]</p>
+
+        <h2 id="s1">[질문형 소제목 1 — 예: 벨마비는 왜 생기나요?]</h2>
+        <div class="key-answer"><strong>[첫 문장 결론]</strong> [근거 한 문장]</div>
+        <p>[설명 → 예시]</p>
+
+        <h2 id="s2">[질문형 소제목 2]</h2>
+        <p>[설명]</p>
+        <table>
+          <thead><tr><th>구분</th><th>내용</th></tr></thead>
+          <tbody><tr><td>[항목]</td><td>[내용 — 표는 반드시 table 태그]</td></tr></tbody>
+        </table>
+        <ul class="check-list"><li>[체크 항목]</li><li>[체크 항목]</li></ul>
+
+        <h2 id="s3">바를정한방병원에서는 이렇게 치료합니다</h2>
+        <div class="key-answer"><strong>[치료 요약 한 문장]</strong></div>
+        <p>[정안침·INNO 매선·정안탕 등 관련 진료 페이지로 내부링크: <a href="/facial-palsy/treatment/">바를정 퍼스널 핵심치료</a>]</p>
+
+        <h2 id="faq">자주 묻는 질문</h2>
+        <div class="faq">
+          <details class="faq-item"><summary>[질문 1 — 실제 검색 문장]</summary><div class="a">[답 — 첫 문장에 결론, 2~3문장]</div></details>
+          <details class="faq-item"><summary>[질문 2]</summary><div class="a">[답]</div></details>
+          <details class="faq-item"><summary>[질문 3]</summary><div class="a">[답]</div></details>
+        </div>
+
+        <section class="references">
+          <h2>참고 자료</h2>
+          <ol>
+            <li>[기관·학회·논문 — 문서명, 연도]</li>
+            <li>바를정한방병원 <a href="/facial-palsy/bells-palsy/">구안와사·벨마비 진료안내</a></li>
+          </ol>
+        </section>
+      </div>
+
+      <p class="review-note">이 글은 <strong>정인호 대표원장(한의사)</strong>이 작성·감수했습니다.</p>
+    </article>
+  </div>
+</main>
+
+<!-- include:footer --><!-- /include:footer -->
+<script src="/assets/js/common.js" defer></script>
+</body>
+</html>

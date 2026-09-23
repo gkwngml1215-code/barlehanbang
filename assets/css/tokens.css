@@ -1,0 +1,51 @@
+/* ------------------------------------------------------------
+   바를정한방병원 안면마비·재활센터 — 디자인 토큰 (공식 CI 기준)
+   컬러 사용 비율: 화이트/소프트블루 배경 70% · CI 네이비 20% · 스틸/스카이 포인트 10%
+   버튼·CTA·푸터 = --bj-navy / 호버 = --bj-blue / 원형 라인·아이콘 = --bj-steel / 서브카피 = --bj-sky
+   ------------------------------------------------------------ */
+:root {
+  /* CI 공식 컬러 */
+  --bj-navy:        #1D3752;  /* CI Primary — 심볼 가로획·눈·입 */
+  --bj-blue:        #214D72;  /* CI Secondary — 호버, 강조 */
+  --bj-steel:       #63839C;  /* 심볼 세로획 톤 — 라인·아이콘·원형 모티프 */
+  --bj-overlap:     #1F4569;  /* 심볼 겹침부 */
+
+  /* Accent — 본 사이트 웹 포인트 */
+  --bj-sky:         #64A7DD;
+  --bj-sky-light:   #C9D6E2;
+  --bj-mist:        #B0BAC4;  /* 푸터 텍스트 */
+  --bj-lavender:    #8E9DC1;  /* 2depth 메뉴 */
+
+  /* 배경 (레퍼런스의 베이지 톤을 바를정 블루 계열로 치환) */
+  --bg-base:        #FFFFFF;
+  --bg-soft:        #F4F7FA;
+  --bg-header:      #EEF3F8;
+  --line:           #DCE4EC;
+
+  /* Text */
+  --text-strong:    #111111;
+  --text-body:      #333333;
+  --text-sub:       #666666;
+  --text-muted:     #8A94A0;
+
+  /* Kakao */
+  --kakao:          #FEE500;
+  --kakao-text:     #191919;
+
+  /* 타이포 */
+  --font-serif:     "Nanum Myeongjo", "Noto Serif KR", serif;
+  --font-en:        "Cormorant Garamond", "Nanum Myeongjo", serif;
+  --font-sans:      "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
+
+  /* 레이아웃 */
+  --inner:          1320px;
+  --inner-narrow:   860px;
+  --gutter:         20px;
+  --header-h:       64px;
+  --radius:         4px;
+  --shadow:         0 10px 30px rgba(29, 55, 82, .08);
+  --ease:           cubic-bezier(.22, .61, .36, 1);
+}
+@media (min-width: 1024px) {
+  :root { --header-h: 90px; --gutter: 32px; }
+}
