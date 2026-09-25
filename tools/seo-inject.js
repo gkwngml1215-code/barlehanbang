@@ -22,7 +22,7 @@ const TODAY = new Date().toISOString().slice(0, 10);
 
 let CFG = {};
 try { CFG = JSON.parse(fs.readFileSync(path.join(ROOT, "admin", "config.json"), "utf8")); } catch (e) {}
-const SITE_URL = (process.env.URL || process.env.SITE_URL || CFG.siteUrl || "https://face.barrrjung-hospital.co.kr").replace(/\/+$/, "");
+const SITE_URL = (process.env.URL || process.env.SITE_URL || CFG.siteUrl || "https://sr-bareul.co.kr").replace(/\/+$/, "");
 
 // 병원 기본 정보는 site.json (어드민 "홈페이지 설정") 에서 읽음
 let SITE = {};

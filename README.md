@@ -102,7 +102,7 @@ tools/
 
 ## 6. 남은 확인 사항 (병원에서 받아야 할 것)
 
-- **도메인**: 현재 임시값 `https://face.barrrjung-hospital.co.kr`. 확정되면 `admin/config.json` siteUrl · `tools/scheduler-worker/wrangler.toml` SITE_URL 수정 후 빌드.
+- **도메인**: `https://sr-bareul.co.kr` (2026-09-25 확정, www 는 이 주소로 리다이렉트). 바꿀 일이 생기면 `admin/config.json` siteUrl · `tools/scheduler-worker/wrangler.toml` SITE_URL 수정 후 빌드.
 - **로고 원본(AI/SVG)**: 현재 `assets/images/logo/` 의 심볼은 CI 색으로 그린 SVG, 워드마크는 폰트 텍스트입니다. 원본을 받으면 `logo-h.svg` · `logo-h-white.svg` · `logo-v.svg` 를 교체하세요 (크기·클래스명 유지).
 - **정사각 PNG 로고** `assets/images/logo/logo-v-512.png` (JSON-LD `logo` 용, 512×512) 와 **OG 이미지** `assets/images/og/og-default.jpg` (1200×630) — 현재 파일이 없어 링크만 걸려 있습니다. 로고 원본으로 만들어 넣으세요.
 - **사진**: `assets/images/` 의 hero · programs · doctors · facility · rehab · features · sub · column 은 모두 자리표시 SVG 입니다. 실제 사진(WebP, 히어로 200KB 이하)으로 교체하고 alt 를 확인하세요. 파일명을 그대로 쓰되 확장자만 바꾸면 각 HTML 의 `src` 를 함께 고쳐야 합니다.

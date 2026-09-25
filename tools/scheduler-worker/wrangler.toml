@@ -8,7 +8,7 @@ workers_dev = false
 preview_urls = false
 
 [vars]
-SITE_URL = "https://face.barrrjung-hospital.co.kr"
+SITE_URL = "https://sr-bareul.co.kr"
 
 # UTC 기준. 00:05 = 한국 09:05, 03:05 = 한국 12:05 (첫 시도가 실패했을 때의 재시도)
 [triggers]

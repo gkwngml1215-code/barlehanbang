@@ -5,7 +5,7 @@ Disallow: /column/_data/
 Disallow: /column/_template.html
 Disallow: /components/
 
-Sitemap: https://face.barrrjung-hospital.co.kr/sitemap.xml
+Sitemap: https://sr-bareul.co.kr/sitemap.xml
 
 User-agent: GPTBot
 Allow: /
