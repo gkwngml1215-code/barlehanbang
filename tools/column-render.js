@@ -127,8 +127,12 @@ function head(title, description, keywords, extra) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 ${keywords ? `<meta name="keywords" content="${esc(keywords)}">\n` : ""}${GENERATED}
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/images/logo/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/assets/images/logo/symbol.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/images/logo/symbol.png">
+<link rel="apple-touch-icon" href="/assets/images/logo/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1D3752">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="/assets/css/tokens.css">
 <link rel="stylesheet" href="/assets/css/common.css">
