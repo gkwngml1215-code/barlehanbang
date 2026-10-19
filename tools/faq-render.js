@@ -8,12 +8,17 @@
  *           <!-- faq:start -->      … <!-- faq:end -->        분류별 질문 목록 (details.faq-item → seo-inject 가 FAQPage 로 추출)
  *           data-faq-count="…" 속성                          전체 개수
  *
+ *  개별 페이지로 분리한 질문은 items 에 summary(요약 문단 배열) 와 detail(개별 페이지 주소) 을 두면
+ *  허브에는 요약 + "자세히 보기 →" 링크만 나오고, 전체 답변(a) 은 개별 페이지의 원본으로 남습니다.
+ *  개별 페이지 원본은 facial-palsy/faq/_data/details/<slug>.html (tools/faq-detail-render.js 가 생성).
+ *
  *  질문·답변을 고치려면 JSON 만 수정하고 `node tools/build.js` (또는 어드민 저장) 를 실행하면 됩니다.
  *  index.html 의 마커 안쪽은 자동 생성이므로 직접 수정하지 마세요.
  */
 "use strict";
 const fs = require("fs");
 const path = require("path");
+const DETAIL = require("./faq-detail-render");
 
 const ROOT = path.resolve(__dirname, "..");
 const PAGES = [
@@ -33,11 +38,14 @@ function renderAnswer(a) {
 }
 
 function renderItem(it) {
+  const brief = it.detail && Array.isArray(it.summary) && it.summary.length;
+  const answer = brief ? it.summary : it.a;
+  const more = it.detail ? `<a href="${esc(it.detail)}" class="faq-more">자세히 보기 →</a>` : "";
   return (
-    `<details class="faq-item" id="q${it.id}" data-cat="${it.cat}">` +
+    `<details class="faq-item" id="q${it.id}" data-cat="${it.cat}"${it.detail ? ` data-detail="${esc(it.detail)}"` : ""}>` +
     `<summary><span class="q-no">Q${it.id}</span><span class="q-text">${esc(it.q)}</span></summary>` +
-    `<div class="a">${renderAnswer(it.a)}` +
-    `<p class="faq-tools"><a href="#q${it.id}" class="faq-link" data-copy="q${it.id}">이 질문 링크 복사</a></p>` +
+    `<div class="a">${renderAnswer(answer)}` +
+    `<p class="faq-tools">${more}<a href="#q${it.id}" class="faq-link" data-copy="q${it.id}">이 질문 링크 복사</a></p>` +
     `</div></details>`
   );
 }
@@ -83,6 +91,7 @@ function renderAll() {
       .replace(/(<time class="faq-updated"[^>]*datetime=")[^"]*("[^>]*>)[^<]*(<\/time>)/, `$1${r.updated}$2${r.updated}$3`);
     if (html !== before) { fs.writeFileSync(pageFile, html, "utf8"); changed++; }
   }
+  changed += DETAIL.renderAll();
   return changed;
 }
 

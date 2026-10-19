@@ -289,6 +289,8 @@
 .faq-tools { margin-top: 10px !important; font-size: 12px; }
 .faq-tools .faq-link { color: var(--text-muted) !important; text-decoration: none !important; }
 .faq-tools .faq-link:hover { color: var(--bj-blue) !important; }
+.faq-tools .faq-more { display: inline-block; margin-right: 14px; padding: 4px 12px; border: 1px solid var(--bj-blue); border-radius: 999px; color: var(--bj-blue) !important; font-size: 13px; font-weight: 700; text-decoration: none !important; }
+.faq-tools .faq-more:hover { background: var(--bj-blue); color: #fff !important; }
 .faq-empty { text-align: center; padding: 48px 16px; border: 1px dashed var(--line); border-radius: 8px; margin-top: 16px; }
 .faq-empty p { font-size: 16px; color: var(--text-body); margin-bottom: 18px; }
 .faq-empty .btns { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
@@ -299,3 +301,27 @@
   .faq-page .q-no { min-width: 48px; font-size: 14px; }
   .faq-group-title { font-size: 20px; }
 }
+
+/* ---------- 구안와사 FAQ 개별 질문 페이지 (facial-palsy/faq/<slug>/) ---------- */
+.faq-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--text-muted); padding-bottom: 18px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
+.faq-meta a { color: var(--bj-blue); text-decoration: underline; text-underline-offset: 3px; }
+.faq-detail-body { font-size: 16px; line-height: 1.9; color: var(--text-body); }
+.faq-detail-body > * + * { margin-top: 16px; }
+.faq-detail-body .key-answer { margin: 0; font-size: 17px; }
+.faq-detail-body h2 { font-family: var(--font-serif); font-size: 22px; margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--text-strong); scroll-margin-top: calc(var(--header-h) + 16px); }
+.faq-detail-body h3 { font-size: 18px; margin-top: 24px; color: var(--bj-navy); }
+.faq-detail-body ul:not(.check-list):not(.dot-list) { padding-left: 20px; list-style: disc; }
+.faq-detail-body ol { padding-left: 22px; list-style: decimal; }
+.faq-detail-body li + li { margin-top: 4px; }
+.faq-detail-body a { color: var(--bj-blue); text-decoration: underline; text-underline-offset: 3px; }
+.faq-detail-body .table-wrap { margin: 16px 0 0; }
+.faq-detail .author-box { margin-top: 40px; }
+.faq-related { margin-top: 40px; border-top: 1px solid var(--bj-navy); padding-top: 18px; }
+.faq-related h2 { font-size: 18px; color: var(--bj-navy); margin-bottom: 12px; }
+.faq-related ul { display: grid; gap: 8px; }
+.faq-related li a { display: block; padding: 12px 16px; border: 1px solid var(--line); background: #fff; font-size: 15px; font-weight: 600; color: var(--text-body); border-radius: var(--radius); transition: border-color .2s, color .2s; }
+.faq-related li a:hover { border-color: var(--bj-navy); color: var(--bj-navy); }
+.faq-related li a small { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-top: 2px; }
+.faq-detail .inner.narrow > .btns { margin-top: 28px; }
+.faq-detail .faq-note { margin-top: 28px; }
+@media (min-width: 768px) { .faq-detail-body { font-size: 17px; } .faq-detail-body h2 { font-size: 26px; } .faq-detail-body h3 { font-size: 20px; } .faq-related ul { grid-template-columns: 1fr 1fr; } }

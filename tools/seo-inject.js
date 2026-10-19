@@ -284,6 +284,8 @@ function buildJsonLd(info, file, url) {
     primaryImageOfPage: info.image,
     dateModified: info.article ? info.article.modified : lastModOf(file),
     audience: { "@type": "MedicalAudience", audienceType: "Patient" },
+    author: { "@id": SITE_URL + "/#doctor" },
+    publisher: { "@id": SITE_URL + "/#hospital" },
     reviewedBy: { "@id": SITE_URL + "/#doctor" },
     lastReviewed: info.article ? info.article.modified : TODAY,
     speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", ".lead", ".key-answer", ".summary-box"] }

@@ -342,6 +342,30 @@ function rebuildRelated(posts) {
     const out = html.replace(/<!-- related-columns:start -->[\s\S]*?<!-- related-columns:end -->/, () => `<!-- related-columns:start -->\n${cards}\n      <!-- related-columns:end -->`);
     if (out !== html) { fs.writeFileSync(file, out); changed++; }
   }
+  // 구안와사 FAQ 개별 질문 페이지(/facial-palsy/faq/<slug>/): data-prefer-columns 의 slug 우선 → FAQ 허브를 관련 페이지로 둔 글 → 안면마비·후유증·생활관리 최신 글
+  const faqDir = path.join(ROOT, "facial-palsy", "faq");
+  const bySlug = new Map(published.map((p) => [p.slug, p]));
+  if (fs.existsSync(faqDir)) {
+    for (const e of fs.readdirSync(faqDir, { withFileTypes: true })) {
+      if (!e.isDirectory() || e.name.startsWith("_")) continue;
+      const file = path.join(faqDir, e.name, "index.html");
+      if (!fs.existsSync(file)) continue;
+      const html = fs.readFileSync(file, "utf8");
+      if (!/<!-- related-columns:start -->/.test(html)) continue;
+      const prefer = ((html.match(/data-prefer-columns="([^"]*)"/) || [])[1] || "").split(",").map((s) => s.trim()).filter(Boolean);
+      const pick = [];
+      const add = (p) => { if (p && !pick.includes(p) && pick.length < 3) pick.push(p); };
+      prefer.forEach((s) => add(bySlug.get(s)));
+      published.filter((p) => p.related === "/facial-palsy/faq/").forEach(add);
+      published.filter((p) => /안면마비|후유증|생활관리/.test(p.category || "")).forEach(add);
+      published.forEach(add);
+      const cards = pick.length ? pick.map(renderCard).join("\n\n") : `      <p class="muted">첫 칼럼을 준비 중입니다. <a href="/column/">원장칼럼 보기</a></p>`;
+      const out = html.replace(/<!-- related-columns:start -->[\s\S]*?<!-- related-columns:end -->/, () => `<!-- related-columns:start -->
+${cards}
+      <!-- related-columns:end -->`);
+      if (out !== html) { fs.writeFileSync(file, out); changed++; }
+    }
+  }
   return changed;
 }
 

@@ -93,6 +93,16 @@ tools/
 - 특정 질문으로 바로 가는 주소: `/facial-palsy/faq/#q12`, 검색어를 미리 넣는 주소: `/facial-palsy/faq/?q=재발`.
 - 원본 텍스트(`바를정질문.txt`)에 있던 "보증·100%·10배 빠름·치료 경험담·비급여 금액" 표현은 의료광고 기준에 맞춰 손봤고, 회복률 수치는 Peitersen(2002) 관찰 연구를 출처로 달았습니다. 새 답변을 넣을 때도 같은 기준을 지켜 주세요.
 
+## 4-2. 구안와사 FAQ 개별 질문 페이지 (20개) 고치는 방법
+
+주소: `/facial-palsy/faq/<slug>/` (예: `/facial-palsy/faq/admission-vs-outpatient/`). 검색 노출을 위해 자주 찾는 질문 20개를 허브에서 분리한 페이지입니다.
+
+- 원본은 `facial-palsy/faq/_data/details/<slug>.html` 하나씩입니다. 맨 위 `<!--meta { … } -->` 에 제목·description·분류·관련 질문·우선 칼럼을 쓰고, 그 아래에 본문(HTML 조각: `.key-answer` 1개 + `<h2>` 2~4개)을 씁니다. 저장 후 `전체-다시-생성.bat` 을 실행하면 `tools/faq-detail-render.js` 가 페이지를 다시 만들고 헤더·푸터·SEO·사이트맵·관련 칼럼까지 함께 갱신됩니다.
+- `facial-palsy/faq/<slug>/index.html` 은 자동 생성 결과물이므로 직접 고치지 마세요.
+- 허브(`gwanwasa.json`)에서 분리한 질문에는 `summary`(요약 2~3문장)와 `detail`(개별 페이지 주소)이 있습니다. 허브에는 summary 만 보이고 "자세히 보기 →" 로 연결되며, 전체 답변 `a` 는 개별 페이지의 원고 근거로 남겨 둡니다. summary 를 고치면 FAQPage 구조화 데이터도 함께 바뀝니다.
+- 새 질문 페이지를 추가하려면 details 폴더에 파일을 하나 만들고, 허브 JSON 의 해당 질문에 summary·detail 을 넣으면 됩니다. 사이트맵·canonical·JSON-LD(MedicalWebPage·BreadcrumbList) 는 빌드가 자동으로 만듭니다.
+- 원고에 원장 확인이 필요한 새 문장이 있으면 그 앞에 `<!-- [원장 확인 필요] -->` 주석을 둡니다(화면에는 안 보임). 확인이 끝나면 주석만 지우세요. 남은 표시는 `grep -rn "원장 확인 필요" facial-palsy/faq/_data/details` 로 찾을 수 있습니다.
+
 ## 5. SEO · GEO · AEO 구조
 
 - 모든 페이지 `<head>` 에 `<!-- seo:start -->` ~ `<!-- seo:end -->` 블록이 자동 생성됩니다: canonical, robots, keywords, 소유확인 코드, Open Graph, Twitter Card, 지역 메타, JSON-LD.
