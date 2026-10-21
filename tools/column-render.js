@@ -12,6 +12,7 @@ const fs = require("fs");
 const path = require("path");
 const INC = require("./include");
 const SA = require("./site-apply");
+const GEOC = require("./geo-column");
 
 const ROOT = path.resolve(__dirname, "..");
 const COLUMNS_DIR = path.join(ROOT, "column");
@@ -20,7 +21,9 @@ const PAGES_DIR = path.join(COLUMNS_DIR, "page");
 const INDEX_FILE = path.join(COLUMNS_DIR, "index.html");
 const HOME_FILE = path.join(ROOT, "index.html");
 const PAGE_SIZE = 12;
-const GENERATED = '<meta name="generator" content="bareuljung-column">';
+// 우리가 만든 칼럼 폴더 표시 (예전 표시 generator 메타도 인식 — 지울 때만 씀)
+const GENERATED = "<!-- column:generated -->";
+const GENERATED_OLD = '<meta name="generator" content="bareuljung-column">';
 
 // 카테고리·기본 작성자·관련 페이지 목록은 admin/config.json 에서 읽음 (어드민과 같은 값을 쓰기 위해)
 let ADMIN_CFG = {};
@@ -97,7 +100,9 @@ function deletePost(slug) {
 // 우리가 만든 칼럼 폴더만 지운다 (index.html 에 generator 표시가 있는 폴더)
 function removeGeneratedDir(dir) {
   const f = path.join(dir, "index.html");
-  if (fs.existsSync(f) && fs.readFileSync(f, "utf8").includes(GENERATED)) fs.rmSync(dir, { recursive: true, force: true });
+  if (!fs.existsSync(f)) return;
+  const html = fs.readFileSync(f, "utf8");
+  if (html.includes(GENERATED) || html.includes(GENERATED_OLD)) fs.rmSync(dir, { recursive: true, force: true });
 }
 
 // ---------- 본문 가공: h2 에 id 부여 + 목차 ----------
@@ -165,11 +170,15 @@ function renderCard(post) {
 }
 
 function renderPost(post, neighbors, related) {
-  const { html: body, toc } = processContent(post.content);
+  const processed = processContent(post.content);
+  const toc = processed.toc;
+  // 비교표는 모바일에서 가로로 밀어 볼 수 있게 감싼다
+  const body = processed.html.replace(/<table\b[\s\S]*?<\/table>/gi, (t) => `<div class="table-wrap">${t}</div>`);
   const thumb = post.thumbnail || DEFAULT_THUMB;
   const summary = (post.summary || []).filter(Boolean);
   const faqs = (post.faqs || []).filter((f) => f.q && f.a);
-  const refs = (post.references || []).filter(Boolean).map(cleanLinks);
+  const refs = GEOC.refItems(post.references).map(cleanLinks);
+  const modified = GEOC.effectiveModified(post);
   const minutes = post.readingMinutes || readingMinutes(post.content);
   const prev = neighbors && neighbors.prev;
   const next = neighbors && neighbors.next;
@@ -187,7 +196,7 @@ ${head(`${post.title} | 바를정한방병원 원장칼럼`, post.description, p
 
 <main id="content">
   <div class="inner narrow">
-    <article class="post" data-category="${esc(post.category)}" data-published="${esc(post.published)}" data-modified="${esc(post.modified || post.published)}" data-image="${esc(thumb)}"${vid ? ` data-video="${esc(post.video)}"` : ""}>
+    <article class="post" data-category="${esc(post.category)}" data-published="${esc(post.published)}" data-modified="${esc(modified)}" data-image="${esc(thumb)}"${vid ? ` data-video="${esc(post.video)}"` : ""}>
 
       <header class="post-head">
         <nav class="breadcrumb" aria-label="현재 위치"><a href="/">홈</a> &gt; <a href="/column/">원장칼럼</a> &gt; <span>${esc(breadcrumbShort)}</span></nav>
@@ -196,15 +205,14 @@ ${head(`${post.title} | 바를정한방병원 원장칼럼`, post.description, p
         <div class="post-meta">
           <span class="author"><img src="${DOCTOR_IMG}" alt="${esc(post.author || DEFAULT_AUTHOR)}" width="40" height="40">${esc(post.author || DEFAULT_AUTHOR)} · 대한안면학회 회장</span>
           <span>작성 <time datetime="${esc(post.published)}">${fmtDate(post.published)}</time></span>
-          ${post.modified && post.modified !== post.published ? `<span>수정 <time datetime="${esc(post.modified)}">${fmtDate(post.modified)}</time></span>` : ""}
           <span>읽는 시간 약 ${minutes}분</span>
         </div>
       </header>
 
       <div class="post-hero"><img src="${esc(thumb)}" alt="${esc(post.thumbnailAlt || post.title)}" width="1200" height="675" fetchpriority="high"></div>
 
-${summary.length ? `      <section class="summary-box" aria-label="핵심 요약">
-        <h2>핵심 요약</h2>
+${summary.length ? `      <section class="summary-box" aria-label="핵심 답변">
+        <p class="summary-title">핵심 답변</p>
         <ul>
 ${summary.map((s) => `          <li>${s}</li>`).join("\n")}
         </ul>
@@ -214,37 +222,30 @@ ${toc.length ? `      <nav class="toc" aria-label="목차">
         <strong>목차</strong>
         <ol>
 ${toc.map((t) => `          <li><a href="#${t.id}">${esc(t.text)}</a></li>`).join("\n")}
-${faqs.length ? `          <li><a href="#faq">자주 묻는 질문</a></li>` : ""}
+${refs.length ? `          <li><a href="#refs">${GEOC.REF_SECTION}</a></li>` : ""}
+${faqs.length ? `          <li><a href="#faq">${GEOC.FAQ_SECTION}</a></li>` : ""}
         </ol>
       </nav>
 ` : ""}
       <div class="post-body">
 ${vid ? `        <div class="video-embed"><iframe src="https://www.youtube.com/embed/${vid}" title="${esc(post.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>\n` : ""}${body}
-${faqs.length ? `
-        <h2 id="faq">자주 묻는 질문</h2>
-        <div class="faq">
-${faqs.map((f) => `          <details class="faq-item"><summary>${esc(f.q)}</summary><div class="a">${esc(f.a)}</div></details>`).join("\n")}
-        </div>
-` : ""}
 ${refs.length ? `
-        <section class="references">
-          <h2>참고 자료</h2>
+        <section class="references" id="refs">
+          <h2>${GEOC.REF_SECTION}</h2>
           <ol>
 ${refs.map((r) => `            <li>${r}</li>`).join("\n")}
           </ol>
         </section>
 ` : ""}
-      </div>
-
-      <p class="review-note">이 글은 <strong>${esc(post.author || DEFAULT_AUTHOR)}(한의사)</strong>이 작성·감수했습니다. 마지막 검토일 ${fmtDate(post.modified || post.published)}.</p>
-
-      <div class="author-box">
-        <img src="${DOCTOR_IMG}" alt="정인호 대표원장" width="96" height="96">
-        <div>
-          <h3>글쓴이 · 정인호 대표원장 (한의사)</h3>
-          <p>바를정한방병원 대표원장. 대한안면학회 회장 · 구안와사연구회 회장 · 우석대학교 한의학과 외래교수. 20년간 안면마비(구안와사·벨마비·람세이헌트증후군)와 그 후유증을 진료해 왔습니다. <a href="/about/doctors/">의료진 소개 보기</a></p>
+${faqs.length ? `
+        <h2 id="faq">${GEOC.FAQ_SECTION}</h2>
+        <div class="faq">
+${faqs.map((f) => `          <details class="faq-item"><summary>${esc(f.q)}</summary><div class="a">${esc(f.a)}</div></details>`).join("\n")}
         </div>
+` : ""}
       </div>
+
+${GEOC.reviewerHtml(post)}
 
 ${ctaBlock()}
 
@@ -254,7 +255,7 @@ ${ctaBlock()}
       </div>
 
 ${related && related.length ? `      <section class="related-posts" aria-label="관련 칼럼">
-        <h2 class="sec-title"><span class="bar"></span>관련 칼럼</h2>
+        <h2 class="sec-title"><span class="bar"></span>함께 읽으면 좋은 칼럼은 무엇인가요?</h2>
         <div class="post-list cols-3">
 ${related.map(renderCard).join("\n\n")}
         </div>

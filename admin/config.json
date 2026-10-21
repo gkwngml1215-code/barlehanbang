@@ -28,5 +28,24 @@
     "/admission/": "입원·보험안내"
   },
   "naverVerify": "",
-  "googleVerify": ""
+  "googleVerify": "",
+  "geo": {
+    "about": "GEO 칼럼 작성원칙 — region: 모든 사진 alt·칼럼 제목에 들어갈 지역 키워드(첫 번째가 기본), reviewer: 칼럼 하단 감수 원장 박스, referenceSources: 참고자료 3개에 꼭 들어갈 출처",
+    "region": [
+      "신림",
+      "관악"
+    ],
+    "reviewer": {
+      "clinic": "바를정한방병원",
+      "name": "정인호",
+      "title": "대표원장",
+      "license": "한의사",
+      "photo": "/assets/images/doctors/jung-inho.jpg",
+      "url": "/about/doctors/",
+      "bio": "대한안면학회 회장 · 구안와사연구회 회장 · 우석대학교 한의학과 외래교수. 20년간 안면마비(구안와사·벨마비·람세이헌트증후군)와 그 후유증을 진료해 왔습니다."
+    },
+    "referenceSources": [
+      "NHS"
+    ]
+  }
 }

@@ -325,3 +325,12 @@
 .faq-detail .inner.narrow > .btns { margin-top: 28px; }
 .faq-detail .faq-note { margin-top: 28px; }
 @media (min-width: 768px) { .faq-detail-body { font-size: 17px; } .faq-detail-body h2 { font-size: 26px; } .faq-detail-body h3 { font-size: 20px; } .faq-related ul { grid-template-columns: 1fr 1fr; } }
+
+/* GEO 칼럼 작성원칙 — 핵심 답변 · 비교표 제목 · 감수 원장 박스 · 최종 수정일 */
+.summary-box .summary-title { font-size: 14px; letter-spacing: .12em; color: var(--bj-steel); font-family: var(--font-en); font-weight: 700; margin-bottom: 12px; }
+.post-body table caption { caption-side: top; text-align: left; font-weight: 700; color: var(--bj-navy); padding-bottom: 8px; }
+.post-body .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.geo-reviewer .geo-reviewer-label { margin-top: 0; font-size: 12px; font-weight: 700; letter-spacing: .12em; color: var(--bj-steel); }
+.geo-reviewer h3 span { font-size: 13px; font-weight: 500; color: var(--text-sub); }
+.geo-reviewer .geo-reviewer-note { font-size: 13px; }
+.geo-modified { margin-top: 14px; text-align: right; font-size: 13px; color: var(--text-sub); }
